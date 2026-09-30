@@ -1,18 +1,28 @@
-package dev.jav10x.CadastroDeNinjas;
+package dev.jav10x.CadastroDeNinjas.Ninjas;
 
+import dev.jav10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // Entity ele transforma uma classe em uma entidade do BD
 // JPA = java persistence API
 @Entity
 @Table(name = "tb_cadastro")
-public class NinjaModel {
+public class NinjaModel extends MissoesModel {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long ID;
-    private String nome;
-    private String email;
-   private int idade;
+     private long ID;
+
+     private String nome;
+
+      private String email;
+
+     private int idade;
+     // @manytooone---um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira
+    private MissoesModel missoes;
 
     public String getNome() {
         return nome;
