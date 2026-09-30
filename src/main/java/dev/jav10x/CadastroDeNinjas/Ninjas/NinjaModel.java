@@ -21,7 +21,7 @@ public class NinjaModel extends MissoesModel {
      private long ID;
 
      private String nome;
-
+@Column(unique = true)
       private String email;
 
      private int idade;
