@@ -18,13 +18,17 @@ import java.util.List;
 public class NinjaModel extends MissoesModel {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column ( name = "id")
      private long ID;
-
+@Column ( name = "nome" )
      private String nome;
 @Column(unique = true)
       private String email;
-
+@Column ( name = "idade")
      private int idade;
+@Column ( name= "img_url")
+    private  String imgUrl;
+
      // @manytooone---um ninja tem uma unica missao
     @ManyToOne
     @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira
